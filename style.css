@@ -1,0 +1,244 @@
+/* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0d0d11; /* Sleek dark background */
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(255, 143, 163, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(255, 143, 163, 0.05) 0px, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   2. MAIN CONTAINER (Glassmorphism)
+   ========================================== */
+#update-container {
+    background: rgba(255, 143, 163, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 143, 163, 0.3);
+    border-radius: 25px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 0 40px rgba(255, 143, 163, 0.15);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   3. HEADER / STATUS SECTION
+   ========================================== */
+.update-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.status-badge {
+    background: rgba(255, 143, 163, 0.15);
+    color: #ff8fa3;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 143, 163, 0.3);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.update-header h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   4. PROGRESS BAR GRAPHICS
+   ========================================== */
+.progress-box {
+    margin-bottom: 10px;
+}
+
+.progress-bar-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 143, 163, 0.2);
+    height: 16px;
+    border-radius: 50px;
+    width: 100%;
+    overflow: hidden;
+    padding: 2px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%; /* Regulated dynamically by JavaScript */
+    background: linear-gradient(90deg, #ff4d6d, #ff8fa3);
+    border-radius: 50px;
+    box-shadow: 0 0 15px #ff4d6d;
+    transition: width 0.1s linear;
+}
+
+.progress-text-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+#status-text {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#percentage-text {
+    color: #ff8fa3;
+    font-weight: bold;
+}
+
+/* ==========================================
+   5. ERROR & LETTER CONTENT (Hidden by default)
+   ========================================== */
+.hidden {
+    display: none !important;
+}
+
+#deployment-log {
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    margin-top: 30px;
+}
+
+.error-box {
+    background: rgba(255, 77, 109, 0.1);
+    border: 1px solid rgba(255, 77, 109, 0.4);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.error-icon {
+    font-size: 1.2rem;
+}
+
+.error-box p {
+    color: #ff4d6d;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* The Heartfelt Letter Layout */
+.monthsary-letter {
+    border-top: 1px solid rgba(255, 143, 163, 0.2);
+    padding-top: 25px;
+}
+
+.monthsary-letter p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.monthsary-letter p:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ff8fa3;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 35px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #ff8fa3;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   6. RESPONSIVE MOBILE OPTIMIZATION
+   ========================================== */
+@media screen and (max-width: 480px) {
+    #update-container {
+        padding: 25px 20px;
+    }
+
+    .update-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .monthsary-letter p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animation Keys */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.system-note-box {
+    background: rgba(255, 143, 163, 0.04);
+    border-left: 4px solid #ff8fa3; /* Creates a clean notification anchor line */
+    border-top: 1px solid rgba(255, 143, 163, 0.15);
+    border-right: 1px solid rgba(255, 143, 163, 0.15);
+    border-bottom: 1px solid rgba(255, 143, 163, 0.15);
+    border-radius: 4px 12px 12px 4px;
+    padding: 16px 20px;
+    margin: 25px 0 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff8fa3;
+    font-family: monospace;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.note-icon {
+    font-size: 1rem;
+}
+
+.system-note-box p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0 !important; /* Overrides default paragraph margin */
+    text-align: left !important;
+}
