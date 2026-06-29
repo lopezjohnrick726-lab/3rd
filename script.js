@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentProgress = 0;
     
-    // Array of funny system messages as it counts up
     const loadingMessages = [
         { upTo: 13, text: "Connecting to local server..." },
         { upTo: 28, text: "Syncing chat histories & away records..." },
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { upTo: 99, text: "Deploying Patch 0.3a..." }
     ];
 
-    // Function to update the descriptive text based on current percentage
     function updateStatusText(progress) {
         const messageObj = loadingMessages.find(msg => progress <= msg.upTo);
         if (messageObj) {
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Main loading loop animation
     const interval = setInterval(() => {
         if (currentProgress < 99) {
             currentProgress++;
@@ -33,15 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
             percentageText.innerText = `${currentProgress}%`;
             updateStatusText(currentProgress);
         } else {
-            // Stop the loop once we hit 99%
             clearInterval(interval);
             triggerSystemError();
         }
-    }, 150); // Controls the speed of the bar (50ms per 1% = roughly 5 seconds total)
+    }, 150);
 
-    // Function to execute when the bar stalls at 99%
     function triggerSystemError() {
-        // Change text layout values to show an issue occurred
         statusText.innerText = "Deployment failed. Proximity required.";
         statusText.style.color = "#ff4d6d";
         percentageText.style.color = "#ff4d6d";
@@ -51,12 +45,47 @@ document.addEventListener("DOMContentLoaded", () => {
         statusBadge.style.color = "#ff4d6d";
         statusBadge.style.borderColor = "rgba(255, 77, 109, 0.3)";
 
-        // Reveal the error warning box and the monthsary letter smoothly
         deploymentLog.classList.remove("hidden");
         
-        // Auto-scroll downwards on mobile screens so she notices the letter content pop up
         setTimeout(() => {
             deploymentLog.scrollIntoView({ behavior: "smooth" });
         }, 300);
     }
 });
+
+// GLOBAL FUNCTION FOR 100% CONVERSION TARGET
+function completePatchThree() {
+    const progressFill = document.getElementById("progress-fill");
+    const percentageText = document.getElementById("percentage-text");
+    const statusText = document.getElementById("status-text");
+    const statusBadge = document.querySelector(".status-badge");
+    const proximityError = document.getElementById("proximity-error");
+    const syncActionWrapper = document.getElementById("sync-action-wrapper");
+    const proximityPayload = document.getElementById("proximity-payload");
+
+    // Force values directly to 100% completion metrics
+    progressFill.style.width = "100%";
+    progressFill.style.background = "linear-gradient(90deg, #4dffb4, #00f5d4)";
+    progressFill.style.boxShadow = "0 0 15px #4dffb4";
+    
+    percentageText.innerText = "100%";
+    percentageText.style.color = "#4dffb4";
+    
+    statusText.innerText = "Operational synchronization completed successfully.";
+    statusText.style.color = "#4dffb4";
+    
+    statusBadge.innerText = "SYSTEM STATUS: OPERATIONAL";
+    statusBadge.style.background = "rgba(77, 255, 180, 0.15)";
+    statusBadge.style.color = "#4dffb4";
+    statusBadge.style.borderColor = "rgba(77, 255, 180, 0.3)";
+
+    // Clean up old elements and drop down the target payload modules
+    proximityError.style.display = "none";
+    syncActionWrapper.style.display = "none";
+    proximityPayload.classList.remove("hidden");
+
+    // Reorient view position down to display the decrypted objectives frame
+    setTimeout(() => {
+        proximityPayload.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+}
