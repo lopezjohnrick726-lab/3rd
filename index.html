@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch 0.3a: System Update</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="update-container">
+        
+        <!-- Header / Status Section -->
+        <div class="update-header">
+            <span class="status-badge">SYSTEM STATUS: OPENING...</span>
+            <h2>MONTH 3!</h2>
+            <p class="subtitle">Deploying: Another month full of love and laughter...</p>
+        </div>
+
+        <!-- The Loading Bar Section -->
+        <div class="progress-box">
+            <div class="progress-bar-container">
+                <div id="progress-fill"></div>
+            </div>
+            <div class="progress-text-row">
+                <span id="status-text">Initializing download...</span>
+                <span id="percentage-text">0%</span>
+            </div>
+        </div>
+
+        <!-- Hidden Error & Message Section -->
+        <div id="deployment-log" class="hidden">
+            <div id="proximity-error" class="error-box">
+                <span class="error-icon">⚠️</span>
+                <p><strong>CRITICAL ERROR 143:</strong> Physical Proximity Required to complete installation.</p>
+            </div>
+
+            <div class="monthsary-letter">
+                <p>Happy 3rd Monthsary, Baobei! 🤍</p>
+                <p>We've officially survived 3 whole months of long-distance banter, late-night gaming, and handling each other's <em>topak</em> virtually as of now. 
+                    I know that it feels too fast na we are already in our 3rd monthsary and that it also feels slow because we want to be together na, but I want you to know na whether it feels fast or slow, 
+                    I will savour every moment that we have, mapa-jokes, laughters, banters, cringe moments, suyuan, chismisan, and etc... 
+                    I appreciate every single moment that we have. I want us to have more moments with each other pa and that we can spend more time with each other this bakasyon. Onting tiis na lang and we can be together na physically hihi. 
+                    Always remember that I love you and I appreciate you every single time. I love you, Baobei, and happy 3rd monthsary 😙😙😙.</p>
+
+                <div class="system-note-box">
+                    <div class="note-header">
+                        <span class="note-icon">ℹ️</span>
+                        <strong>SYSTEM NOTICE: PENDING ACTION</strong>
+                    </div>
+                    <p>The remaining 1% of this update can only be installed in person. Prepare your scanning device for the meetup, Baobei. 
+                        Your next instructions will be delivered via a physical QR code.</p>
+                </div>
+
+                <!-- NEW INTERACTIVE SYNC BUTTON -->
+                <div id="sync-action-wrapper" style="text-align: center; margin: 25px 0;">
+                    <button id="sync-button" onclick="completePatchThree()">INITIALIZE PROXIMITY SYNC</button>
+                </div>
+
+                <!-- HIDDEN PAYLOAD PROTOCOL: REVEALED ON 100% CLICK -->
+                <div id="proximity-payload" class="hidden">
+                    <div class="success-banner">
+                        🏁 <strong>LINK ESTABLISHED (100%):</strong> Proximity protocols unlocked.
+                    </div>
+                    <div class="qr-payload-box">
+                        <h3>[ OBJECTIVE REVEALED ]</h3>
+                        <p>Scan the hidden core tracker inside your bouquet on July 1st to sync the operational parameters for the meetup:</p>
+                        
+                        <!-- THE QR CODE WRAPPER CONTAINER -->
+                        <div class="qr-frame">
+                            <!-- Generate a QR for "https://lopezjohnrick726-lab.github.io/3rd/patch4.html" and upload it to GitHub as qr04.png -->
+                            <img src="qr04.png" alt="Patch 0.4 System Core QR">
+                        </div>
+                        <span class="system-hash">Target File Address: patch4.html</span>
+                    </div>
+                </div>
+                
+                <div class="signature">
+                    // Verification Paused. <br>
+                    - Shion ❤️
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
